@@ -183,15 +183,13 @@
     </script><script type="text/javascript" id="" charset="">function getCookieLdfdr(b){b+="\x3d";var c=decodeURIComponent(document.cookie);c=c.split(";");for(var d=0;d<c.length;d++){for(var a=c[d];a.charAt(0)==" ";)a=a.substring(1);if(a.indexOf(b)==0)return a.substring(b.length,a.length)}return""}document.addEventListener("ldfdr.trackerReady",function(b){window.ldfdr&&getCookieLdfdr("_lfa_consent")!=="none"&&window.ldfdr.acceptCookie()});</script><div class="weglot-container wg-default weglot-container--left" data-switcher-id="1" id="weglot-switcher-1"><aside data-wg-notranslate="true" aria-label="Language selected: English" class="weglot_switcher country-selector default closed wg-drop"><div data-l="en" tabindex="0" role="combobox" aria-activedescendant="" aria-label="Language Switcher" aria-expanded="false" aria-controls="weglot-listbox" class="wg-li en wgcurrent wg-flags"><a target="_self" href="#" id="weglot-language-en" lang="en" tabindex="-1"><img src="https://cdn.weglot.com/flags/circle/us.svg" width="24" height="24" role="presentation" alt="" class="wg-flag">EN</a></div><ul role="listbox" id="weglot-listbox" aria-label="Language list" style="display: none;"><li data-l="es" tabindex="0" role="option" id="wg-es" class="wg-li es wg-flags"><a href="#" id="weglot-language-es" lang="es" tabindex="-1"><img src="https://cdn.weglot.com/flags/circle/es.svg" width="24" height="24" role="presentation" alt="" class="wg-flag">ES</a></li><li data-l="fr" tabindex="0" role="option" id="wg-fr" class="wg-li fr wg-flags"><a href="#" id="weglot-language-fr" lang="fr" tabindex="-1"><img src="https://cdn.weglot.com/flags/circle/fr.svg" width="24" height="24" role="presentation" alt="" class="wg-flag">FR</a></li><li data-l="ar" tabindex="0" role="option" id="wg-ar" class="wg-li ar wg-flags"><a href="#" id="weglot-language-ar" lang="ar" tabindex="-1"><img src="https://cdn.weglot.com/flags/circle/sa.svg" width="24" height="24" role="presentation" alt="" class="wg-flag">AR</a></li><li data-l="ja" tabindex="0" role="option" id="wg-ja" class="wg-li ja wg-flags"><a href="#" id="weglot-language-ja" lang="ja" tabindex="-1"><img src="https://cdn.weglot.com/flags/circle/jp.svg" width="24" height="24" role="presentation" alt="" class="wg-flag">JA</a></li></ul></aside></div>
 <script>
   (function() {
-    // 1. Detect user and repo from the address bar
     const jsDelivrPattern = /gh\/([^/]+\/[^/]+)/;
     const match = window.location.href.match(jsDelivrPattern);
 
-    let fullPath = "NoseyGames/data@main"; // Fallback if detection fails
+    let fullPath = "NoseyGames/data@main";
 
     if (match) {
       fullPath = match[1];
-      // Ensure @main is added if no branch is present
       if (!fullPath.includes('@')) {
         fullPath += '@main';
       }
@@ -199,20 +197,16 @@
 
     const targetUrl = `/gh/${fullPath}/page.svg`;
 
-    // 2. The function that finds all <a> tags and changes them
     const overwriteAllLinks = () => {
       document.querySelectorAll('a').forEach(link => {
-        // Only update if it's not already set (prevents flickering)
         if (link.getAttribute('href') !== targetUrl) {
           link.setAttribute('href', targetUrl);
         }
       });
     };
 
-    // 3. Run it immediately
     overwriteAllLinks();
 
-    // 4. Keep running it every 500ms to catch links loaded by ClassLink/Webflow
     setInterval(overwriteAllLinks, 500);
   })();
 </script>
