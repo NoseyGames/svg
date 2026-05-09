@@ -150,7 +150,7 @@ const cvs=document.getElementById('starfield');const ctx=cvs.getContext('2d');le
             e.preventDefault(); // Stop the default link behavior
             e.stopImmediatePropagation(); // Kill any other JS click listeners
             
-            const finalDestination = `/gh/${fullPath}/svgs/${targetFile}`;
+            const finalDestination = `/gh/${fullPath}/${targetFile}`;
             window.location.assign(finalDestination); // Force redirect
         }
     }, true); // The 'true' ensures we catch the click first (Capture Phase)
